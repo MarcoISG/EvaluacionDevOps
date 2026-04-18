@@ -30,12 +30,19 @@ public class PrestamoService {
     }
 
     public Prestamo guardar(Prestamo prestamo) {
-        return repository.guardar(prestamo);
+    if (prestamo.getRun_solicitante() == null || prestamo.getRun_solicitante().trim().isEmpty()) {
+        throw new IllegalArgumentException("El RUN del solicitante no puede estar vacío");
     }
+    return repository.guardar(prestamo);
+    }
+    
+
+
 
     public Prestamo actualizar(int id, Prestamo prestamo) {
-        return repository.actualizar(id, prestamo);
-    }
+    prestamo.setId_prestamo(id);
+    return repository.actualizar(id, prestamo);
+}
 
     public boolean eliminar(int id) {
         return repository.eliminar(id);
