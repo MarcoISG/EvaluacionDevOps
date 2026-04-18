@@ -34,12 +34,9 @@ public class PrestamoService {
         throw new IllegalArgumentException("El RUN del solicitante no puede estar vacío");
     }
     return repository.guardar(prestamo);
-    }
-    
+}
 
-
-
-    public Prestamo actualizar(int id, Prestamo prestamo) {
+public Prestamo actualizar(int id, Prestamo prestamo) {
     prestamo.setId_prestamo(id);
     return repository.actualizar(id, prestamo);
 }
