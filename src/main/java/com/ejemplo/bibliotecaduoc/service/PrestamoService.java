@@ -5,6 +5,7 @@ import com.ejemplo.bibliotecaduoc.repository.PrestamoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -15,6 +16,13 @@ public class PrestamoService {
 
     public List<Prestamo> obtenerPrestamos() {
         return repository.obtenerPrestamos();
+    }
+
+    public List<Prestamo> obtenerPrestamosOrdenados() {
+        return repository.obtenerPrestamos()
+                .stream()
+                .sorted(Comparator.comparingInt(Prestamo::getId_prestamo))
+                .toList();
     }
 
     public Prestamo buscarPorId(int id) {

@@ -19,6 +19,11 @@ public class PrestamoController {
         return service.obtenerPrestamos();
     }
 
+    @GetMapping("/ordenados")
+    public List<Prestamo> obtenerPrestamosOrdenados() {
+        return service.obtenerPrestamosOrdenados();
+    }
+
     @GetMapping("/{id}")
     public Prestamo buscarPorId(@PathVariable int id) {
         return service.buscarPorId(id);
