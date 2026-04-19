@@ -25,5 +25,8 @@ jobs:
       - name: Compilar con Maven
         run: mvn clean compile -DskipTests
 
+      - name: Ejecutar tests
+        run: mvn test
+
       - name: Confirmar build exitoso
-        run: echo "Build completado correctamente"
+        run: echo "Build y tests completados correctamente"
