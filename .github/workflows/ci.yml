@@ -21,12 +21,10 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
-
-      - name: Dar permisos a Maven Wrapper
-        run: chmod +x mvnw
+          cache: maven
 
       - name: Compilar con Maven
-        run: ./mvnw clean compile -DskipTests
+        run: mvn -B clean compile -DskipTests
 
       - name: Confirmar build exitoso
         run: echo "Build completado correctamente"
